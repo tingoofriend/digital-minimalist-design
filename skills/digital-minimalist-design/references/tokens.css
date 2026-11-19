@@ -1,0 +1,63 @@
+/* digital-minimalist-design — starter tokens (MIT) */
+:root {
+  --dm-bg: #F7F7F7;
+  --dm-surface: #FFFFFF;
+  --dm-text: #000000;
+  --dm-text-2: #808080;
+  --dm-text-3: #BBBBBB;
+  --dm-line: #E2E2E2;
+
+  --dm-margin: 20px;
+  --dm-row: 56px;
+  --dm-row-2line: 59px;
+  --dm-check: 20px;
+  --dm-btn: 44px;
+  --dm-radius-card: 22px;
+  --dm-radius-pill: 999px;
+
+  --dm-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Pretendard", system-ui, sans-serif;
+  --dm-serif: "New York", "Iowan Old Style", Georgia, serif;
+  --dm-mono: "SF Mono", ui-monospace, Menlo, monospace;
+
+  --dm-t-display: 64px;
+  --dm-t-content-title: 42px;
+  --dm-t-large-title: 34px;
+  --dm-t-header: 20px;
+  --dm-t-body: 17px;
+  --dm-t-row: 15px;
+  --dm-t-meta: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dm-bg: #000000;
+    --dm-surface: #1C1C1E;
+    --dm-text: #FFFFFF;
+    --dm-text-2: #8E8E93;
+    --dm-text-3: #48484A;
+    --dm-line: #2C2C2E;
+  }
+}
+
+body {
+  background: var(--dm-bg);
+  color: var(--dm-text);
+  font: 400 var(--dm-t-row)/1.35 var(--dm-font);
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all; /* keeps Korean words intact */
+}
+
+.dm-header { font-size: var(--dm-t-header); font-weight: 600; }
+.dm-header span { color: var(--dm-text-2); font-weight: 400; }
+.dm-meta { font-size: var(--dm-t-meta); color: var(--dm-text-2); }
+.dm-btn {
+  background: var(--dm-text); color: var(--dm-bg);
+  border: 0; border-radius: var(--dm-radius-pill);
+  padding: 12px 20px; font-weight: 600;
+}
+.dm-check {
+  width: var(--dm-check); height: var(--dm-check);
+  border: 1.5px solid var(--dm-text-3); border-radius: 50%;
+}
+.dm-done { color: var(--dm-text-3); text-decoration: line-through; }
+.dm-divider { border-bottom: 1px solid var(--dm-line); }
