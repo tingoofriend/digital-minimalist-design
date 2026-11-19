@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Digital Minimalist 스타일 목업 v2 — Onething</title>
+<style>
+:root{
+  --bg:#F7F7F7; --surface:#FFF; --text:#000; --text-2:#808080; --text-3:#BBBBBB; --line:#E2E2E2;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Apple SD Gothic Neo","Pretendard","Noto Sans KR",system-ui,sans-serif;
+  --serif:"New York","Iowan Old Style","Noto Serif KR",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#FCFCFC;color:var(--text);font:400 15px/1.35 var(--font);-webkit-font-smoothing:antialiased;padding:56px 24px 96px;word-break:keep-all}
+.wrap{max-width:1240px;margin:0 auto}
+.page-k{font-size:13px;color:var(--text-2);margin-bottom:8px}
+.page-h{font-size:34px;font-weight:700;letter-spacing:-.02em}
+.page-p{color:var(--text-2);margin-top:8px;max-width:620px}
+.sec{margin:56px 0 18px;font-size:13px;color:var(--text-2)}
+.row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.cap{font-size:12px;color:var(--text-2);text-align:center;margin-top:12px;max-width:284px}
+
+/* ---- device: real 393x852pt screen, displayed at 0.68 ---- */
+.dev{zoom:.68}
+.phone{width:417px;height:876px;border-radius:66px;background:#151515;padding:12px;box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
+.scr{width:393px;height:852px;border-radius:55px;overflow:hidden;position:relative;background:var(--bg);display:flex;flex-direction:column}
+.scr.dark{background:#000;color:#fff}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:124px;height:36px;background:#000;border-radius:20px;z-index:5}
+.sb{height:54px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:6px 32px 0 48px;font-size:17px;font-weight:600}
+.sb svg{display:block}
+.sbi{display:flex;gap:7px;align-items:center}
+
+/* list screen (measured list values) */
+.nav{height:56px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:0 16px}
+.rb{width:44px;height:44px;border-radius:50%;background:var(--surface);display:grid;place-items:center;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.dark .rb{background:#1C1C1E;box-shadow:none}
+.navt{font-size:17px;font-weight:600}
+.list{flex:1;overflow:hidden;padding:0 0 0 20px}
+.dh{display:flex;align-items:baseline;gap:6px;height:56px;align-items:center;padding-right:20px;font-size:20px}
+.dh b{font-weight:600}.dh span{color:var(--text-2)}
+.cnt{margin-left:auto;color:var(--text-2);font-size:15px;display:flex;align-items:center;gap:6px}
+.it{display:flex;align-items:center;min-height:59px;padding-right:20px;border-bottom:1px solid var(--line);margin-left:38px;position:relative}
+.it .ck{position:absolute;left:-38px;top:50%;transform:translateY(-50%);width:20px;height:20px;border:1.5px solid var(--text-3);border-radius:50%}
+.it.one{min-height:56px}
+.t{font-size:15px}.m{font-size:12px;color:var(--text-2);margin-top:2px}
+.it.done .t{color:var(--text-3);text-decoration:line-through}
+.it.done .ck{background:var(--text-3);border-color:var(--text-3)}
+.add{min-height:50px;display:flex;align-items:center;margin-left:38px;color:var(--text-3);font-size:15px;position:relative}
+.add:before{content:"";position:absolute;left:-38px;width:20px;height:20px;border:1.5px dashed var(--text-3);border-radius:50%;opacity:.7}
+.bot{height:100px;flex:none;display:flex;justify-content:space-between;align-items:flex-start;padding:12px 16px 0}
+.pill2{display:flex;background:var(--surface);border-radius:999px;height:48px;align-items:center;padding:0 6px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.pill2 span{width:46px;height:44px;display:grid;place-items:center}
+.plus{width:56px;height:56px;border-radius:50%;background:var(--text);display:grid;place-items:center}
+
+/* home screen */
+.home{padding:18px 28px 0;display:grid;grid-template-columns:158px 158px;gap:20px 21px}
+.w{background:var(--surface);border-radius:22px;width:158px;height:158px;padding:16px;display:flex;flex-direction:column}
+.w.med{grid-column:span 2;width:337px}
+.q{font-size:15px;font-weight:700;line-height:1.2}
+.yn{font-size:38px;font-weight:900;letter-spacing:-.01em;line-height:1;margin-top:auto}
+.ts{font-size:11px;color:var(--text-2);margin-top:6px}
+.wh{display:flex;justify-content:space-between;font-size:15px;font-weight:700}.wh span{color:var(--text-2);font-weight:400}
+.dots{display:grid;grid-template-columns:repeat(8,10px);gap:7px 6.3px;margin-top:auto}
+.dots i{width:10px;height:10px;border-radius:50%;background:#000}.dots i.o{background:#E4E4E4}
+.wi{display:flex;align-items:center;gap:8px;font-size:13px;margin-top:8px}
+.wi i{width:17px;height:17px;border:1.5px solid var(--text-3);border-radius:50%;flex:none}
+.wi.d{color:var(--text-3);text-decoration:line-through}
+.wl{grid-column:span 1;margin-top:-14px;text-align:center;font-size:12px;color:#555}
+.launch{padding:30px 38px 0;font-size:28px;line-height:1.7;font-weight:500}
+.dock{margin:auto 14px 14px;height:90px;border-radius:36px;background:rgba(0,0,0,.05)}
+
+/* focus */
+.fc{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 32px}
+.ftask{font-size:28px;font-weight:700;line-height:1.25;letter-spacing:-.01em}
+.ftime{margin-top:18px;font-size:17px;color:#8E8E93;font-variant-numeric:tabular-nums}
+.fbot{flex:none;display:flex;justify-content:center;padding-bottom:56px}
+.ghost{border:1px solid #2C2C2E;border-radius:999px;height:48px;padding:0 24px;display:flex;align-items:center;font-size:15px}
+
+/* lock */
+.lock{flex:1;display:flex;flex-direction:column;align-items:center;padding-top:20px}
+.ld{font-size:20px;font-weight:600}
+.lt{font-family:var(--serif);font-size:104px;font-weight:500;line-height:1.05;letter-spacing:-.01em}
+.la{margin:auto 14px 120px;align-self:stretch;background:#1C1C1E;border-radius:24px;padding:16px 18px}
+.la .h{display:flex;justify-content:space-between;font-size:13px;color:#8E8E93}
+.la .x{font-size:17px;font-weight:600;margin-top:6px}
+.prog{height:4px;background:#2C2C2E;border-radius:4px;margin-top:14px}.prog i{display:block;height:100%;width:62%;background:#fff;border-radius:4px}
+
+/* intervention */
+.iv{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 40px}
+.ivn{font-size:96px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.ivs{font-size:15px;color:#8E8E93;margin-top:14px;line-height:1.4}
+.ivb{flex:none;display:flex;flex-direction:column;align-items:center;gap:18px;padding-bottom:64px}
+.wpill{background:#fff;color:#000;border-radius:999px;height:50px;padding:0 26px;display:flex;align-items:center;font-size:15px;font-weight:600}
+.lnk{font-size:15px;color:#8E8E93}
+
+/* player */
+.pl{flex:1;padding:24px 22px 0;display:flex;flex-direction:column}
+.pm{font-size:13px;color:var(--text-2)}
+.pt{font-size:42px;font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-top:14px}
+.pbar{height:3px;background:var(--line);border-radius:3px;margin-top:auto}.pbar i{display:block;width:34%;height:100%;background:#000;border-radius:3px}
+.ptime{display:flex;justify-content:space-between;font-size:12px;color:var(--text-2);margin-top:8px;font-variant-numeric:tabular-nums}
+.pc{display:flex;justify-content:center;align-items:center;gap:44px;padding:22px 0 64px}
+.pp{width:64px;height:64px;border-radius:50%;background:#000;display:grid;place-items:center}
+
+/* mac + web */
+.mac{width:600px;border-radius:14px;background:#E9E9E9;overflow:hidden;box-shadow:0 20px 40px -24px rgba(0,0,0,.25)}
+.menubar{height:28px;background:rgba(255,255,255,.75);display:flex;justify-content:flex-end;align-items:center;gap:16px;padding:0 14px;font-size:13px;font-weight:500}
+.menubar .on{background:rgba(0,0,0,.08);border-radius:5px;padding:2px 8px;font-variant-numeric:tabular-nums}
+.desk{height:300px;position:relative;background:linear-gradient(#ECECEC 55%,#CFCFCF 55%)}
+.desk:after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:#5a5a5a;clip-path:polygon(0 100%,0 70%,30% 20%,55% 60%,75% 30%,100% 75%,100% 100%)}
+.pop{position:absolute;right:84px;top:6px;width:236px;background:#fff;border-radius:12px;padding:16px;box-shadow:0 8px 30px rgba(0,0,0,.12);z-index:2}
+.pop .s{font-size:12px;color:var(--text-2)}.pop .n{font-size:40px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin:2px 0 12px}
+.chips{display:flex;gap:6px}.chips span{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:4px 10px}.chips span.a{background:#000;color:#fff;border-color:#000}
+.web{width:600px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 20px 40px -24px rgba(0,0,0,.25)}
+.chrome{height:30px;background:#F2F2F2;display:flex;align-items:center;gap:6px;padding:0 12px}.chrome i{width:10px;height:10px;border-radius:50%;background:#D6D6D6}
+.wh2{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;font-size:14px}
+.wh2 b{font-size:16px;display:flex;align-items:center;gap:8px}.wh2 b em{width:16px;height:16px;border-radius:5px;background:#000;display:inline-block}
+.wh2 nav{display:flex;gap:20px;color:var(--text-2)}
+.hero{padding:40px 32px 40px}
+.hero h2{font-size:40px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.hero p{color:var(--text-2);margin:14px 0 24px;max-width:400px;font-size:15px}
+.pbtn{display:inline-block;background:#000;color:#fff;border-radius:999px;padding:12px 22px;font-weight:600;font-size:14px}
+.hero small{display:block;margin-top:12px;color:var(--text-2);font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="page-k">digital-minimalist-design — 예시 목업 (가상의 앱)</div>
+<h1 class="page-h">Onething — 하루에 하나만 하는 앱</h1>
+<p class="page-p">기기 화면을 실제 393×852pt로 만들고 68%로 축소해 표시했습니다. 글자 크기와 간격은 스킬의 실측 수치를 그대로 적용했습니다.</p>
+
+<div class="sec">iOS — 리스트 · 홈 화면 · 포커스 · 잠금화면</div>
+<div class="row">
+
+<!-- 1 list -->
+<div><div class="dev"><div class="phone"><div class="scr" id="s1">
+  <div class="island"></div>
+  <div class="sb"><span>9:41</span><span class="sbi">
+    <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+    <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.5 6.9a6.4 6.4 0 0 1 9 0l-1.5 1.5a4.3 4.3 0 0 0-6 0zM1.2 4.6a9.6 9.6 0 0 1 13.6 0l-1.4 1.5a7.6 7.6 0 0 0-10.8 0z"/></svg>
+    <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="20" height="9" rx="2"/><rect x="25" y="4.5" width="1.5" height="4" rx=".75" opacity=".4"/></svg>
+  </span></div>
+  <div class="nav">
+    <span class="rb"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#000" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="3"/><path d="M3 10h4l1.5 2h3L13 10h4"/></svg></span>
+    <span class="navt">47주차</span>
+    <span class="rb"><svg width="20" height="4" viewBox="0 0 20 4"><circle cx="3" cy="2" r="1.8"/><circle cx="10" cy="2" r="1.8"/><circle cx="17" cy="2" r="1.8"/></svg></span>
+  </div>
+  <div class="list">
+    <div class="dh"><b>월</b><span>11월 16일</span><span class="cnt">3 <svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="#808080" stroke-width="1.6"><path d="m1 1 5 5-5 5"/></svg></span></div>
+    <div class="it done one"><span class="ck"></span><div class="t">기획서 초안 보내기</div></div>
+    <div class="it"><span class="ck"></span><div><div class="t">화분에 물 주기</div><div class="m">개인</div></div></div>
+    <div class="it"><span class="ck"></span><div><div class="t">영화 보기</div><div class="m">개인 · 오후 8:00</div></div></div>
+    <div class="add">할 일 추가</div>
+    <div class="dh"><b>화</b><span>11월 17일</span><span class="cnt">2 <svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="#808080" stroke-width="1.6"><path d="m1 1 5 5-5 5"/></svg></span></div>
+    <div class="it"><span class="ck"></span><div><div class="t">워크숍 준비</div><div class="m">업무</div></div></div>
+    <div class="it"><span class="ck"></span><div><div class="t">피아노 연습</div><div class="m">개인 · 오후 4:00</div></div></div>
+    <div class="add">할 일 추가</div>
+  </div>
+  <div class="bot">
+    <div class="pill2"><span><svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="#000" stroke-width="1.7"><path d="M17 7H2m5-6L1 7l6 6"/></svg></span><span><svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="#000" stroke-width="1.7"><path d="M1 7h15m-5-6 6 6-6 6"/></svg></span></div>
+    <div class="plus"><svg width="20" height="20" viewBox="0 0 20 20" stroke="#fff" stroke-width="2"><path d="M10 2v16M2 10h16"/></svg></div>
+  </div>
+</div></div></div><div class="cap">리스트 — 여백 20 · 헤더 20 · 항목 15/12</div></div>
+
+<!-- 2 home -->
+<div><div class="dev"><div class="phone"><div class="scr" id="s2">
+  <div class="island"></div>
+  <div class="sb"><span>9:41</span><span class="sbi">
+    <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+    <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="20" height="9" rx="2"/></svg>
+  </span></div>
+  <div class="home">
+    <div class="w"><div class="q">오늘 운동<br>했나요?</div><div class="yn">YES</div><div class="ts">11/19, 07:12</div></div>
+    <div class="w"><div class="wh">Day <span>62%</span></div><div class="dots">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i>
+    </div></div>
+    <div class="wl">Onething</div><div class="wl">Onething</div>
+    <div class="w med"><div class="wh">목요일 <span>3</span></div>
+      <div class="wi"><i></i>발표 자료 마무리</div>
+      <div class="wi"><i></i>은행 서류 제출</div>
+      <div class="wi d"><i></i>세탁물 찾기</div>
+    </div>
+    <div class="wl" style="grid-column:span 2">Onething</div>
+  </div>
+  <div class="launch">messages<br>calendar<br>camera</div>
+  <div class="dock"></div>
+</div></div></div><div class="cap">홈 — 158pt 위젯 · 큰 답 38 · 런처 28</div></div>
+
+<!-- 3 focus -->
+<div><div class="dev"><div class="phone"><div class="scr dark">
+  <div class="island"></div>
+  <div class="sb"><span>9:41</span><span></span></div>
+  <div class="nav"><span class="rb"><svg width="14" height="14" viewBox="0 0 14 14" stroke="#fff" stroke-width="1.8"><path d="m1 1 12 12M13 1 1 13"/></svg></span><span></span><span></span></div>
+  <div class="fc"><div class="ftask">발표 자료<br>마무리하기</div><div class="ftime">24:53</div></div>
+  <div class="fbot"><div class="ghost">다 했어요</div></div>
+</div></div></div><div class="cap">포커스 — 검정, 할 일 하나, 작은 타이머</div></div>
+
+<!-- 4 lock -->
+<div><div class="dev"><div class="phone"><div class="scr dark">
+  <div class="island"></div>
+  <div class="sb"><span></span><span></span></div>
+  <div class="lock">
+    <div class="ld">11월 19일 목요일</div>
+    <div class="lt">9:41</div>
+    <div class="la"><div class="h"><span>Onething</span><span>오늘</span></div><div class="x">발표 자료 마무리하기</div><div class="prog"><i></i></div></div>
+  </div>
+</div></div></div><div class="cap">잠금화면 — 세리프 시계 + Live Activity</div></div>
+</div>
+
+<div class="sec">iOS — 개입(마찰) 화면 · 텍스트 우선 상세</div>
+<div class="row">
+<div><div class="dev"><div class="phone"><div class="scr dark">
+  <div class="island"></div><div class="sb"><span>9:41</span><span></span></div>
+  <div class="iv"><div class="ivn">4</div><div class="ivs">오늘 Instagram을 연 횟수<br>지난 시도 12분 전</div></div>
+  <div class="ivb"><div class="wpill">열지 않을래요</div><div class="lnk">그래도 열기</div></div>
+</div></div></div><div class="cap">개입 — 큰 숫자 하나, 흰 pill 하나, 링크 하나</div></div>
+
+<div><div class="dev"><div class="phone"><div class="scr">
+  <div class="island"></div><div class="sb"><span>9:41</span><span></span></div>
+  <div class="pl">
+    <div class="pm">11월 19일 · 오늘의 한 가지</div>
+    <div class="pt">발표 자료를 마무리하고 리허설 한 번 하기</div>
+    <div class="pbar"><i></i></div>
+    <div class="ptime"><span>08:32</span><span>25:00</span></div>
+  </div>
+  <div class="pc">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#000" stroke-width="1.8"><path d="M5 13a8 8 0 1 0 2.3-5.7M5 3v5h5"/></svg>
+    <div class="pp"><svg width="18" height="20" viewBox="0 0 18 20" fill="#fff"><rect x="1" y="0" width="5" height="20" rx="1.5"/><rect x="12" y="0" width="5" height="20" rx="1.5"/></svg></div>
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#000" stroke-width="1.8"><path d="M21 13a8 8 0 1 1-2.3-5.7M21 3v5h-5"/></svg>
+  </div>
+</div></div></div><div class="cap">상세 — 42pt Bold 텍스트 우선 제목</div></div>
+
+<div style="display:flex;flex-direction:column;gap:28px">
+  <div><div class="mac">
+    <div class="menubar"><span class="on">● 24:53</span><span>Wi‑Fi</span><span>11월 19일 (목) 오전 9:41</span></div>
+    <div class="desk"><div class="pop"><div class="s">발표 자료 마무리하기</div><div class="n">24:53</div><div class="chips"><span>15분</span><span class="a">25분</span><span>50분</span></div></div></div>
+  </div><div class="cap" style="max-width:600px">macOS 메뉴바 — 아이콘 대신 남은 시간 텍스트</div></div>
+  <div><div class="web">
+    <div class="chrome"><i></i><i></i><i></i></div>
+    <div class="wh2"><b><em></em>Onething</b><nav><span>소개</span><span>블로그</span></nav></div>
+    <div class="hero"><h2>하루에<br>한 가지만.</h2><p>오늘 가장 중요한 일을 하나 정하고, 홈 화면과 잠금화면에 조용히 띄워 두세요.</p><span class="pbtn">App Store에서 받기</span><small>계정 없이 사용 · 데이터는 기기에만 저장</small></div>
+  </div><div class="cap" style="max-width:600px">웹 — 단일 컬럼, 검정 pill CTA 하나</div></div>
+</div>
+</div>
+</div>
+</body>
+</html>
