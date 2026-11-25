@@ -15,6 +15,7 @@
 - **스타일이 아니라 제품 원칙**: 한 가지 일만 한다. 앱을 열지 않아도 쓸모 있게. 중독성 행동 앞에는 의도적 마찰을. 배지·스트릭·피드 금지.
 - **추측이 아니라 실측**: 글자 크기, 간격, 회색 값을 실제 레퍼런스 앱 화면에서 픽셀 단위로 측정했습니다([`measurements.md`](skills/digital-minimalist-design/references/measurements.md)).
 - **화면 밖의 표면까지**: 위젯, 잠금화면, Live Activity, Dynamic Island, macOS 메뉴바를 주 무대로 다룹니다.
+- **화면만이 아니라 동작까지**: 모션, 제스처, 햅틱, 로딩·오류·오프라인 상태, 알림, 접근성을 Calm Technology, Apple HIG, Material 3에 근거해 정리했습니다.
 - **멀티 플랫폼**: iOS, Android, 웹, macOS, e-ink/저자극 모드, 그리고 한국어 타이포그래피 주의점.
 
 ## 구성
@@ -24,6 +25,7 @@ skills/digital-minimalist-design/
 ├── SKILL.md                    # 스킬 본문 (영어, 기준 문서)
 └── references/
     ├── measurements.md         # 측정 방법, 원본 수치, 오차
+    ├── sources.md              # 동작 규칙의 근거 자료
     └── tokens.css              # 바로 쓰는 CSS 토큰 (라이트/다크)
 docs/
 ├── SKILL.ko.md                 # 한국어판

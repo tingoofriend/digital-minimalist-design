@@ -15,6 +15,7 @@ Most minimalist UI skills are about **aesthetics**: editorial web layouts, bento
 - **Product principles, not just style.** Do one thing. Be useful without opening the app. Add deliberate friction before compulsive actions. No badges, streaks, or feeds.
 - **Measured, not guessed.** Type sizes, spacing, and grays were pixel-measured from real reference apps (see [`measurements.md`](skills/digital-minimalist-design/references/measurements.md)).
 - **Surfaces beyond the screen.** Widgets, Lock Screen, Live Activities, the Dynamic Island, and the macOS menu bar are first-class.
+- **Behavior, not only pixels.** Motion, gestures, haptics, loading/error/offline states, notifications, and accessibility, grounded in Calm Technology, Apple HIG, and Material 3.
 - **Multi-platform.** iOS, Android, web, macOS, and e-ink / low-stimulus modes, plus CJK typography notes.
 
 ## What's inside
@@ -24,6 +25,7 @@ skills/digital-minimalist-design/
 ├── SKILL.md                    # the skill (English, canonical)
 └── references/
     ├── measurements.md         # how values were measured, raw numbers, error margins
+    ├── sources.md              # references behind the behavior rules
     └── tokens.css              # drop-in CSS tokens (light + dark)
 docs/
 ├── SKILL.ko.md                 # Korean version
@@ -40,6 +42,7 @@ Highlights from `SKILL.md`:
 | Type | header 20 pt Semibold · row 15 pt · meta 12 pt · content title 40–44 pt Bold |
 | Layout | 20 pt margins · 20 pt round checkboxes · 56/59 pt rows · 44 pt circular buttons |
 | Patterns | text launcher, big-answer widget, dot-grid progress, single note, focus mode, intervention screen, text-first player, menu-bar popover |
+| Behavior | 100–250 ms motion, no bounce · swipe to complete, undo over confirm · haptics only on discrete events · silent saving · opt-in, user-scheduled notifications only · WCAG-checked grays |
 
 ## Install
 
