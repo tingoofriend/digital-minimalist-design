@@ -3,7 +3,8 @@
   --dm-bg: #F7F7F7;
   --dm-surface: #FFFFFF;
   --dm-text: #000000;
-  --dm-text-2: #808080;
+  --dm-text-2: #707070;           /* 4.6:1 on bg; measured references use #808080 (3.7:1) */
+  --dm-text-2-large: #808080;     /* OK for large / non-essential text */
   --dm-text-3: #BBBBBB;
   --dm-line: #E2E2E2;
 
@@ -26,6 +27,14 @@
   --dm-t-body: 17px;
   --dm-t-row: 15px;
   --dm-t-meta: 12px;
+
+  /* motion (section 7) */
+  --dm-dur-micro: 120ms;          /* checkbox, toggle, press */
+  --dm-dur-change: 220ms;         /* collapse, strikethrough, reorder settle */
+  --dm-dur-max: 300ms;            /* cap for regular UI */
+  --dm-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --dm-ease-enter: cubic-bezier(0, 0, 0, 1);
+  --dm-ease-exit: cubic-bezier(0.3, 0, 1, 1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,5 +68,15 @@ body {
   width: var(--dm-check); height: var(--dm-check);
   border: 1.5px solid var(--dm-text-3); border-radius: 50%;
 }
-.dm-done { color: var(--dm-text-3); text-decoration: line-through; }
+.dm-done { color: var(--dm-text-3); text-decoration: line-through;
+  transition: color var(--dm-dur-change) var(--dm-ease-standard); }
 .dm-divider { border-bottom: 1px solid var(--dm-line); }
+
+@media (prefers-contrast: more) {
+  :root { --dm-text-2: #5C5C5C; --dm-text-3: #8A8A8A; --dm-line: #C8C8C8; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dm-dur-change: 120ms; }
+  *, *::before, *::after { animation: none !important; }
+}
